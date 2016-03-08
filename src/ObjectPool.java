@@ -1,9 +1,13 @@
 import java.util.ArrayList;
 
 public class ObjectPool {
-	private int [] objectPool;
+	public int [] objectPool;
+	private int [] handlePoolLink;
 	private int currentPosition;
 	private int poolByteSize;
+	private final int redFishByteSize = 12;
+	private final int blueFishByteSize = 8;
+	private final int yellowFishByteSize = 4;
 	private final int redFish = 3;
 	private final int blueFish = 2;
 	private final int yellowFish = 1;
@@ -15,7 +19,8 @@ public class ObjectPool {
 	FISH	fish;
 
 	public ObjectPool(){
-		objectPool = new int[20];
+		objectPool = new int[10];
+		handlePoolLink = new int[10];
 		currentPosition = -1;
 		fish = null;
 		poolByteSize = 0;
@@ -24,47 +29,12 @@ public class ObjectPool {
 	public void setObjectPoolToEmpty(){
 		for(int i = 0;i < objectPool.length;i++) objectPool[i] = 0;
 	}
-
-	public void addToObjectPool(FISH fish){
-		switch(fish){
-		case RED_FISH:
-			/*
-			 * Check and make sure the array can take 3 more spaces.
-			 * If it can then add them to the objectPool if it can't throw an exception.
-			 */
-			int redByteSize = 12;
-			if(hasEnoughSpace(redFish)){
-				addRequiredSpace(redFish);
-				setPoolByteSize(redByteSize);
-			}
-			break;
-		case BLUE_FISH:
-			/*
-			 * Check and make sure the array can take 2 more spaces if it can then
-			 * add them into the object pool, if it can't throw an exception.
-			 */
-			int blueByteSize = 8;
-			if(hasEnoughSpace(blueFish)){
-				addRequiredSpace(blueFish);
-				setPoolByteSize(blueByteSize);
-			}
-			break;
-		case YELLOW_FISH:
-			/*
-			 * Check and make sure the array can take 1 more space
-			 * if it can add it ot the object pool, otherwise throw exception.
-			 */
-			int yellowByteSize = 4;
-			if(hasEnoughSpace(yellowFish)){
-				addRequiredSpace(yellowFish);
-				setPoolByteSize(yellowByteSize);
-			}
-			break;
-		default:
-			System.out.println("You should'nt be here");
-			break;
-		}
+	
+	public void setHandlePoolLinkToEmpty(){
+		for(int i = 0; i < handlePoolLink.length;i++) handlePoolLink[i] = 0;
 	}
+
+	
 
 	public boolean hasEnoughSpace(int objectSize){
 		boolean hasSpace = false;
