@@ -2,15 +2,9 @@ import java.util.ArrayList;
 
 public class ObjectPool {
 	public int [] objectPool;
-	private int [] handlePoolLink;
+	private int [] handlePoolLinks;
 	private int currentPosition;
 	private int poolByteSize;
-	private final int redFishByteSize = 12;
-	private final int blueFishByteSize = 8;
-	private final int yellowFishByteSize = 4;
-	private final int redFish = 3;
-	private final int blueFish = 2;
-	private final int yellowFish = 1;
 
 	public enum FISH{
 		RED_FISH,BLUE_FISH,YELLOW_FISH
@@ -20,7 +14,7 @@ public class ObjectPool {
 
 	public ObjectPool(){
 		objectPool = new int[10];
-		handlePoolLink = new int[10];
+		handlePoolLinks = new int[10];
 		currentPosition = -1;
 		fish = null;
 		poolByteSize = 0;
@@ -31,10 +25,8 @@ public class ObjectPool {
 	}
 	
 	public void setHandlePoolLinkToEmpty(){
-		for(int i = 0; i < handlePoolLink.length;i++) handlePoolLink[i] = 0;
+		for(int i = 0; i < handlePoolLinks.length;i++) handlePoolLinks[i] = 0;
 	}
-
-	
 
 	public boolean hasEnoughSpace(int objectSize){
 		boolean hasSpace = false;

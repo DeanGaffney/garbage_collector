@@ -12,6 +12,12 @@ public class Panel extends JPanel{
 	private JLabel objectPoolLabel;
 	private JLabel objectIndex;
 	private JLabel handleIndex;
+	private JLabel localVariables;
+	private JLabel redFishLocalVariableLabel;
+	private JLabel blueFishLocalVariableLabel;
+	private JLabel yellowFishLocalVariableLabel;
+
+	
 
 	private JTextField handleText1;
 	private JTextField handleText2;
@@ -63,8 +69,11 @@ public class Panel extends JPanel{
 
 	private GridBagConstraints handlePoolLabelConstraints;
 	private GridBagConstraints objectPoolLabelConstraints;
-	private GridBagConstraints handleIndexLabelConstraints;
-	private GridBagConstraints objectIndexLabelConstraints;
+	private GridBagConstraints localVariablesLabelConstraints;
+	private GridBagConstraints redFishLocalVariablesLabelConstraints;
+	private GridBagConstraints blueFishLocalVariablesLabelConstraints;
+	private GridBagConstraints yellowFishLocalVariablesLabelConstraints;
+
 
 	private GridBagConstraints handleText1Constraints;
 	private GridBagConstraints handleText2Constraints;
@@ -125,9 +134,7 @@ public class Panel extends JPanel{
 		setLayout(new GridBagLayout());
 		add(getHandlePoolLabel(),getHandlePoolLabelConstraints());
 		add(getObjectPoolLabel(),getObjectPoolLabelConstraints());
-		//add(getObjectIndexLabel(),getObjectIndexLabelConstraints());
-		//add(getHandleIndexLabel(),getHandleIndexLabelConstraints());
-
+		
 		add(getHandleText1(),getHandleText1Constraints());
 		add(getHandleText2(),getHandleText2Constraints());
 		add(getHandleText3(),getHandleText3Constraints());
@@ -175,7 +182,86 @@ public class Panel extends JPanel{
 		add(getRedFishButton(),getRedFishButtonConstraints());
 		add(getBlueFishButton(),getBlueFishButtonConstraints());
 		add(getYellowFishButton(),getYellowFishButtonConstraints());
+		add(getLocalVariables(),getLocalVariablesLabelConstraints());
+		add(getRedFishLocalVariableLabel(),getRedFishLocalVariablesLabelConstraints());
+		add(getBlueFishLocalVariableLabel(),getBlueFishLocalVariablesLabelConstraints());
+		add(getYellowFishLocalVariableLabel(),getYellowFishLocalVariablesLabelConstraints());
+	}
+	
+	
+	public JLabel getRedFishLocalVariableLabel() {
+		if(redFishLocalVariableLabel == null){
+			redFishLocalVariableLabel = new JLabel("Red Fish = 0");
+			redFishLocalVariableLabel.setOpaque(true);
+			redFishLocalVariableLabel.setBackground(Color.RED);
+		}
+		return redFishLocalVariableLabel;
+	}
 
+	public JLabel getBlueFishLocalVariableLabel() {
+		if(blueFishLocalVariableLabel == null){
+			blueFishLocalVariableLabel = new JLabel("Blue Fish = 1");
+			blueFishLocalVariableLabel.setOpaque(true);
+			blueFishLocalVariableLabel.setBackground(Color.BLUE);
+			blueFishLocalVariableLabel.setForeground(Color.WHITE);
+		}
+		return blueFishLocalVariableLabel;
+	}
+
+	public JLabel getYellowFishLocalVariableLabel() {
+		if(yellowFishLocalVariableLabel == null){
+			yellowFishLocalVariableLabel = new JLabel("Yellow Fish = 2");
+			yellowFishLocalVariableLabel.setOpaque(true);
+			yellowFishLocalVariableLabel.setBackground(Color.YELLOW);
+		}
+		return yellowFishLocalVariableLabel;
+	}
+
+	public GridBagConstraints getRedFishLocalVariablesLabelConstraints() {
+		if(redFishLocalVariablesLabelConstraints == null){
+			redFishLocalVariablesLabelConstraints = new GridBagConstraints();
+			redFishLocalVariablesLabelConstraints.gridx = 0;
+			redFishLocalVariablesLabelConstraints.gridy = 6;
+			redFishLocalVariablesLabelConstraints.insets = new Insets(8, 8, 8, 8);
+		}
+		return redFishLocalVariablesLabelConstraints;
+	}
+
+	public GridBagConstraints getBlueFishLocalVariablesLabelConstraints() {
+		if(blueFishLocalVariablesLabelConstraints == null){
+			blueFishLocalVariablesLabelConstraints = new GridBagConstraints();
+			blueFishLocalVariablesLabelConstraints.gridx = 0;
+			blueFishLocalVariablesLabelConstraints.gridy = 7;
+			blueFishLocalVariablesLabelConstraints.insets = new Insets(8, 8, 8, 8);
+		}
+		return blueFishLocalVariablesLabelConstraints;
+	}
+
+	public GridBagConstraints getYellowFishLocalVariablesLabelConstraints() {
+		if(yellowFishLocalVariablesLabelConstraints == null){
+			yellowFishLocalVariablesLabelConstraints = new GridBagConstraints();
+			yellowFishLocalVariablesLabelConstraints.gridx = 0;
+			yellowFishLocalVariablesLabelConstraints.gridy = 8;
+			yellowFishLocalVariablesLabelConstraints.insets = new Insets(8, 8, 8, 8);
+		}
+		return yellowFishLocalVariablesLabelConstraints;
+	}
+
+	public JLabel getLocalVariables() {
+		if(localVariables == null){
+			localVariables = new JLabel("Local Variables");
+		}
+		return localVariables;
+	}
+
+	public GridBagConstraints getLocalVariablesLabelConstraints() {
+		if(localVariablesLabelConstraints == null){
+			localVariablesLabelConstraints = new GridBagConstraints();
+			localVariablesLabelConstraints.gridx = 0;
+			localVariablesLabelConstraints.gridy = 5;
+			localVariablesLabelConstraints.insets = new Insets(8, 8, 8, 8);
+		}
+		return localVariablesLabelConstraints;
 	}
 
 	public JButton getBlueFishButton() {
@@ -693,11 +779,11 @@ public class Panel extends JPanel{
 	}
 
 	public GridBagConstraints getObjectTextLink10Constraints() {
-		if(objectTextLink9Constraints == null){
-			objectTextLink9Constraints = new GridBagConstraints();
-			objectTextLink9Constraints.gridx = 5;
-			objectTextLink9Constraints.gridy = 10;
-			objectTextLink9Constraints.insets = new Insets(8, 8, 8, 8);
+		if(objectTextLink10Constraints == null){
+			objectTextLink10Constraints = new GridBagConstraints();
+			objectTextLink10Constraints.gridx = 5;
+			objectTextLink10Constraints.gridy = 10;
+			objectTextLink10Constraints.insets = new Insets(8, 8, 8, 8);
 		}
 		return objectTextLink10Constraints;
 	}
@@ -903,26 +989,6 @@ public class Panel extends JPanel{
 		}
 		return makeRedFish;
 	}
-
-	/*public GridBagConstraints getHandleIndexLabelConstraints() {
-		if(handleIndexLabelConstraints == null){
-			handleIndexLabelConstraints = new GridBagConstraints();
-			handleIndexLabelConstraints.gridx = 2;
-			handleIndexLabelConstraints.gridy = 0;
-			handleIndexLabelConstraints.insets = new Insets(8, 8, 8, 8);
-		}
-		return handlePoolLabelConstraints;
-	}*/
-
-	/*public GridBagConstraints getObjectIndexLabelConstraints() {
-		if(objectIndexLabelConstraints == null){
-			objectIndexLabelConstraints = new GridBagConstraints();
-			objectIndexLabelConstraints.gridx = 5;
-			objectIndexLabelConstraints.gridy = 0;
-			objectIndexLabelConstraints.insets = new Insets(8, 8, 8, 8);
-		}
-		return handlePoolLabelConstraints;
-	}*/
 
 	public GridBagConstraints getHandlePoolLabelConstraints() {
 		if(handlePoolLabelConstraints == null){

@@ -22,6 +22,17 @@ public class Frame extends JFrame{
 			getPanel().getObjectText8(),
 			getPanel().getObjectText9(),
 			getPanel().getObjectText10()};
+	
+	JTextField[] objectTextLinkFields = { getPanel().getObjectLinkText1(),
+			getPanel().getObjectLinkText2(),
+			getPanel().getObjectLinkText3(),
+			getPanel().getObjectLinkText4(),
+			getPanel().getObjectLinkText5(),
+			getPanel().getObjectLinkText6(),
+			getPanel().getObjectLinkText7(),
+			getPanel().getObjectLinkText8(),
+			getPanel().getObjectLinkText9(),
+			getPanel().getObjectLinkText10()};
 
 	JTextField[] handleTextFields = {getPanel().getHandleText1(),
 			getPanel().getHandleText2(),
@@ -33,6 +44,17 @@ public class Frame extends JFrame{
 			getPanel().getHandleText8(),
 			getPanel().getHandleText9(),
 			getPanel().getHandleText10()};
+	
+	JTextField[] handleTextLinkFields = {getPanel().getHandleLinkText1(),
+			getPanel().getHandleLinkText2(),
+			getPanel().getHandleLinkText3(),
+			getPanel().getHandleLinkText4(),
+			getPanel().getHandleLinkText5(),
+			getPanel().getHandleLinkText6(),
+			getPanel().getHandleLinkText7(),
+			getPanel().getHandleLinkText8(),
+			getPanel().getHandleLinkText9(),
+			getPanel().getHandleLinkText10()};
 
 	public Frame(){
 		init();

@@ -1,8 +1,8 @@
-import java.util.ArrayList;
 
 public class HandlePool {
 
 	private int [] handlePool;
+	private int [] objectPoolLinks;
 	private ObjectPool objectPool;
 	private int currentPositionObject;
 	private int currentPositionHandle;
@@ -22,6 +22,7 @@ public class HandlePool {
 
 	public HandlePool(ObjectPool objectPool){
 		handlePool = new int [10];
+		objectPoolLinks = new int [10];
 		this.objectPool = objectPool;
 		currentPositionObject = 0;
 		currentPositionHandle = 0;
@@ -49,6 +50,14 @@ public class HandlePool {
 			System.out.println("You should'nt be here");
 			break;
 		}
+	}
+	
+	public void setHandlePoolToEmpty(){
+		for(int i = 0;i < handlePool.length;i++) handlePool[i] = 0;
+	}
+	
+	public void setObjectPoolLinksToEmpty(){
+		for(int i = 0;i < objectPoolLinks.length;i++) objectPoolLinks[i] = 0;
 	}
 
 
