@@ -2,8 +2,9 @@
 public class HandlePool {
 
 	private int [] handlePool;
-	private int [] objectPoolLinks;
-	private ObjectPool objectPool;
+	public int [] objectPoolLinks;
+	public boolean [] links;
+	public ObjectPool objectPool;
 	private int currentPositionObject;
 	private int currentPositionHandle;
 	private int poolByteSize;
@@ -23,6 +24,7 @@ public class HandlePool {
 	public HandlePool(ObjectPool objectPool){
 		handlePool = new int [10];
 		objectPoolLinks = new int [10];
+		links = new boolean [10];
 		this.objectPool = objectPool;
 		currentPositionObject = 0;
 		currentPositionHandle = 0;
@@ -52,6 +54,9 @@ public class HandlePool {
 		}
 	}
 	
+	public void setLinksEmpty(){
+		for(int i = 0;i < links.length;i++) links[i] = false;
+	}
 	public void setHandlePoolToEmpty(){
 		for(int i = 0;i < handlePool.length;i++) handlePool[i] = 0;
 	}

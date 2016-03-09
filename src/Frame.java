@@ -22,7 +22,7 @@ public class Frame extends JFrame{
 			getPanel().getObjectText8(),
 			getPanel().getObjectText9(),
 			getPanel().getObjectText10()};
-	
+
 	JTextField[] objectTextLinkFields = { getPanel().getObjectLinkText1(),
 			getPanel().getObjectLinkText2(),
 			getPanel().getObjectLinkText3(),
@@ -44,7 +44,7 @@ public class Frame extends JFrame{
 			getPanel().getHandleText8(),
 			getPanel().getHandleText9(),
 			getPanel().getHandleText10()};
-	
+
 	JTextField[] handleTextLinkFields = {getPanel().getHandleLinkText1(),
 			getPanel().getHandleLinkText2(),
 			getPanel().getHandleLinkText3(),
@@ -79,20 +79,28 @@ public class Frame extends JFrame{
 					clickRedFish();
 				}
 			});
-			
+
 			panel.getBlueFishButton().addActionListener(new ActionListener() {
-				
+
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					clickBlueFish();
 				}
 			});
-			
+
 			panel.getYellowFishButton().addActionListener(new ActionListener() {
-				
+
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					clickYellowFish();
+				}
+			});
+
+			panel.getMarkAndSweepButton().addActionListener(new ActionListener() {
+
+				@Override
+				public void actionPerformed(ActionEvent arg0) {
+					markAndSweep();
 				}
 			});
 		}
@@ -116,8 +124,8 @@ public class Frame extends JFrame{
 		objectTextFields[handlePool.getCurrentPositionObject()+2].setEditable(false);
 
 		handleTextFields[handlePool.getCurrentPositionHandle()].setBackground(Color.RED);
-		handleTextFields[handlePool.getCurrentPositionObject()].setText("Red Fish");
-		handleTextFields[handlePool.getCurrentPositionObject()].setEditable(false);
+		handleTextFields[handlePool.getCurrentPositionHandle()].setText("Red Fish");
+		handleTextFields[handlePool.getCurrentPositionHandle()].setEditable(false);
 
 		handlePool.setCurrentPositionObject(3);
 		handlePool.setCurrentPositionHandle(1);
@@ -143,7 +151,7 @@ public class Frame extends JFrame{
 		handlePool.setCurrentPositionObject(2);
 		handlePool.setCurrentPositionHandle(1);
 	}
-	
+
 	public void clickYellowFish(){
 		handlePool.addToPools(handlePool.fish.YELLOW_FISH);
 
@@ -154,8 +162,37 @@ public class Frame extends JFrame{
 		handleTextFields[handlePool.getCurrentPositionHandle()].setBackground(Color.YELLOW);
 		handleTextFields[handlePool.getCurrentPositionHandle()].setText("Yellow Fish");
 		handleTextFields[handlePool.getCurrentPositionHandle()].setEditable(false);
-		
+
 		handlePool.setCurrentPositionObject(1);
 		handlePool.setCurrentPositionHandle(1);
+	}
+
+	public void markAndSweep(){
+		handlePool.setLinksEmpty();
+		System.out.println(handlePool.links[0]);
+		for(int i = 0; i < handleTextLinkFields.length;i++){
+			if(!handleTextLinkFields[i].getText().equals("")){
+				int objectPoolReference = Integer.parseInt(handleTextLinkFields[i].getText());
+				System.out.println(objectPoolReference);
+				handlePool.links[objectPoolReference] = true;
+				System.out.println(handlePool.links);
+			}else continue;
+		}
+		sweep();
+	}
+
+	public void sweep(){
+		for(int i = 0; i < handlePool.objectPool.objectPool.length; i ++){
+			if(!handlePool.links[i]){
+				if(objectTextFields[i].getText().equals("")){
+					System.out.println("Empty so space was skipped");
+				}
+				else{
+					objectTextFields[i].setText("Collected!");
+					objectTextFields[i].setBackground(Color.BLACK);
+					objectTextFields[i].setForeground(Color.WHITE);
+				}
+			}
+		}
 	}
 }

@@ -17,7 +17,7 @@ public class Panel extends JPanel{
 	private JLabel blueFishLocalVariableLabel;
 	private JLabel yellowFishLocalVariableLabel;
 
-	
+
 
 	private JTextField handleText1;
 	private JTextField handleText2;
@@ -66,6 +66,7 @@ public class Panel extends JPanel{
 	private JButton makeRedFish;
 	private JButton makeBlueFish;
 	private JButton makeYellowFish;
+	private JButton markAndSweep;
 
 	private GridBagConstraints handlePoolLabelConstraints;
 	private GridBagConstraints objectPoolLabelConstraints;
@@ -123,6 +124,7 @@ public class Panel extends JPanel{
 	private GridBagConstraints redFishButtonConstraints;
 	private GridBagConstraints blueFishButtonConstraints;
 	private GridBagConstraints yellowFishButtonConstraints;
+	private GridBagConstraints markAndSweepButtonConstraints;
 
 
 
@@ -134,7 +136,7 @@ public class Panel extends JPanel{
 		setLayout(new GridBagLayout());
 		add(getHandlePoolLabel(),getHandlePoolLabelConstraints());
 		add(getObjectPoolLabel(),getObjectPoolLabelConstraints());
-		
+
 		add(getHandleText1(),getHandleText1Constraints());
 		add(getHandleText2(),getHandleText2Constraints());
 		add(getHandleText3(),getHandleText3Constraints());
@@ -182,13 +184,15 @@ public class Panel extends JPanel{
 		add(getRedFishButton(),getRedFishButtonConstraints());
 		add(getBlueFishButton(),getBlueFishButtonConstraints());
 		add(getYellowFishButton(),getYellowFishButtonConstraints());
+
 		add(getLocalVariables(),getLocalVariablesLabelConstraints());
 		add(getRedFishLocalVariableLabel(),getRedFishLocalVariablesLabelConstraints());
 		add(getBlueFishLocalVariableLabel(),getBlueFishLocalVariablesLabelConstraints());
 		add(getYellowFishLocalVariableLabel(),getYellowFishLocalVariablesLabelConstraints());
+		add(getMarkAndSweepButton(),getMarkAndSweepButtonConstraints());
 	}
-	
-	
+
+
 	public JLabel getRedFishLocalVariableLabel() {
 		if(redFishLocalVariableLabel == null){
 			redFishLocalVariableLabel = new JLabel("Red Fish = 0");
@@ -990,6 +994,13 @@ public class Panel extends JPanel{
 		return makeRedFish;
 	}
 
+	public JButton getMarkAndSweepButton(){
+		if(markAndSweep == null){
+			markAndSweep= new JButton("Mark and Sweep");
+		}
+		return markAndSweep;
+	}
+
 	public GridBagConstraints getHandlePoolLabelConstraints() {
 		if(handlePoolLabelConstraints == null){
 			handlePoolLabelConstraints = new GridBagConstraints();
@@ -1058,5 +1069,15 @@ public class Panel extends JPanel{
 			blueFishButtonConstraints.insets = new Insets(8, 8, 8, 8);
 		}
 		return blueFishButtonConstraints;
+	}
+
+	public GridBagConstraints getMarkAndSweepButtonConstraints() {
+		if(markAndSweepButtonConstraints == null){
+			markAndSweepButtonConstraints = new GridBagConstraints();
+			markAndSweepButtonConstraints.gridx = 0;
+			markAndSweepButtonConstraints.gridy = 9;
+			markAndSweepButtonConstraints.insets = new Insets(8, 8, 8, 8);
+		}
+		return markAndSweepButtonConstraints;
 	}
 }
