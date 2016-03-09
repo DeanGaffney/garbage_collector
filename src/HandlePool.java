@@ -68,32 +68,6 @@ public class HandlePool {
 		return hasSpace;
 	}
 
-	public void addRequiredSpaceObject(int requiredSpace){
-		for(int i = 0; i < requiredSpace; i++)
-			objectPool.objectPool[++currentPositionObject] = requiredSpace;
-	}
-	
-	public void rearrangeArray(){
-		for(int i = 0; i < objectPool.objectPool.length;i++){
-			switch(objectPool.objectPool[i]){
-			case 3:
-				objectPool.objectPool[++i] = 2;
-				objectPool.objectPool[++i] = 1;
-				break;
-			case 2:
-				objectPool.objectPool[++i] = 1;
-				break;
-			case 1:
-				break;
-			}
-		}
-		System.out.println(objectPool.objectPool);
-	}
-	
-	public void addRequiredSpaceHandle(int requiredSpace){
-		handlePool[++currentPositionHandle] = requiredSpace;
-	}
-
 	public void setPoolByteSize(int byteSize){
 		poolByteSize += byteSize;
 	}
