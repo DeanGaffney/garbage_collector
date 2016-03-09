@@ -103,10 +103,22 @@ public class Frame extends JFrame{
 		handlePool.addToPools(handlePool.fish.RED_FISH);
 
 		objectTextFields[handlePool.getCurrentPositionObject()].setBackground(Color.RED);
+		objectTextFields[handlePool.getCurrentPositionObject()].setText("Red Fish");
+		objectTextFields[handlePool.getCurrentPositionObject()].setEditable(false);
+
 		objectTextFields[handlePool.getCurrentPositionObject()+1].setBackground(Color.BLUE);
+		objectTextFields[handlePool.getCurrentPositionObject()+1].setText("Blue Fish");
+		objectTextFields[handlePool.getCurrentPositionObject()+1].setForeground(Color.WHITE);
+		objectTextFields[handlePool.getCurrentPositionObject()+1].setEditable(false);
+
 		objectTextFields[handlePool.getCurrentPositionObject()+2].setBackground(Color.YELLOW);
+		objectTextFields[handlePool.getCurrentPositionObject()+2].setText("Yellow Fish");
+		objectTextFields[handlePool.getCurrentPositionObject()+2].setEditable(false);
 
 		handleTextFields[handlePool.getCurrentPositionHandle()].setBackground(Color.RED);
+		handleTextFields[handlePool.getCurrentPositionObject()].setText("Red Fish");
+		handleTextFields[handlePool.getCurrentPositionObject()].setEditable(false);
+
 		handlePool.setCurrentPositionObject(3);
 		handlePool.setCurrentPositionHandle(1);
 	}
@@ -115,9 +127,19 @@ public class Frame extends JFrame{
 		handlePool.addToPools(handlePool.fish.BLUE_FISH);
 
 		objectTextFields[handlePool.getCurrentPositionObject()].setBackground(Color.BLUE);
+		objectTextFields[handlePool.getCurrentPositionObject()].setText("Blue Fish");
+		objectTextFields[handlePool.getCurrentPositionObject()].setForeground(Color.WHITE);
+		objectTextFields[handlePool.getCurrentPositionObject()].setEditable(false);
+
 		objectTextFields[handlePool.getCurrentPositionObject()+1].setBackground(Color.YELLOW);
+		objectTextFields[handlePool.getCurrentPositionObject()+1].setText("Yellow Fish");
+		objectTextFields[handlePool.getCurrentPositionObject()+1].setEditable(false);
 
 		handleTextFields[handlePool.getCurrentPositionHandle()].setBackground(Color.BLUE);
+		handleTextFields[handlePool.getCurrentPositionHandle()].setText("Blue Fish");
+		handleTextFields[handlePool.getCurrentPositionHandle()].setForeground(Color.WHITE);
+		handleTextFields[handlePool.getCurrentPositionHandle()].setEditable(false);
+
 		handlePool.setCurrentPositionObject(2);
 		handlePool.setCurrentPositionHandle(1);
 	}
@@ -126,8 +148,13 @@ public class Frame extends JFrame{
 		handlePool.addToPools(handlePool.fish.YELLOW_FISH);
 
 		objectTextFields[handlePool.getCurrentPositionObject()].setBackground(Color.YELLOW);
+		objectTextFields[handlePool.getCurrentPositionObject()].setText("Yellow Fish");
+		objectTextFields[handlePool.getCurrentPositionObject()].setEditable(false);
 
 		handleTextFields[handlePool.getCurrentPositionHandle()].setBackground(Color.YELLOW);
+		handleTextFields[handlePool.getCurrentPositionHandle()].setText("Yellow Fish");
+		handleTextFields[handlePool.getCurrentPositionHandle()].setEditable(false);
+		
 		handlePool.setCurrentPositionObject(1);
 		handlePool.setCurrentPositionHandle(1);
 	}
