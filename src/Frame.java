@@ -12,6 +12,8 @@ public class Frame extends JFrame{
 	private ObjectPool objectPool = new ObjectPool();
 	private HandlePool handlePool = new HandlePool(objectPool);
 
+	private JTextField objectPoolSize = getPanel().getObjectPoolSize();
+	
 	JTextField[] objectTextFields = { getPanel().getObjectText1(),
 			getPanel().getObjectText2(),
 			getPanel().getObjectText3(),
@@ -63,6 +65,9 @@ public class Frame extends JFrame{
 		setResizable(false);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		handlePool.setHandlePoolToEmpty();
+		handlePool.objectPool.setObjectPoolToEmpty();
+		objectPoolSize.setText(Integer.toString(handlePool.getPoolByteSize()));
 	}
 
 	private void init() {
@@ -129,6 +134,9 @@ public class Frame extends JFrame{
 
 		handlePool.setCurrentPositionObject(3);
 		handlePool.setCurrentPositionHandle(1);
+		
+		handlePool.setPoolByteSize(handlePool.redFishByteSize);
+		objectPoolSize.setText(Integer.toString(handlePool.getPoolByteSize()));
 	}
 
 	public void clickBlueFish(){
@@ -150,6 +158,9 @@ public class Frame extends JFrame{
 
 		handlePool.setCurrentPositionObject(2);
 		handlePool.setCurrentPositionHandle(1);
+		
+		handlePool.setPoolByteSize(handlePool.blueFishByteSize);
+		objectPoolSize.setText(Integer.toString(handlePool.getPoolByteSize()));
 	}
 
 	public void clickYellowFish(){
@@ -165,6 +176,9 @@ public class Frame extends JFrame{
 
 		handlePool.setCurrentPositionObject(1);
 		handlePool.setCurrentPositionHandle(1);
+		
+		handlePool.setPoolByteSize(4);
+		objectPoolSize.setText(Integer.toString(handlePool.getPoolByteSize()));
 	}
 
 	public void markAndSweep(){

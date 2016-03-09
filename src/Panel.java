@@ -16,7 +16,9 @@ public class Panel extends JPanel{
 	private JLabel redFishLocalVariableLabel;
 	private JLabel blueFishLocalVariableLabel;
 	private JLabel yellowFishLocalVariableLabel;
+	private JLabel objectPoolSizeLabel;
 
+	private JTextField objectPoolSize;
 
 
 	private JTextField handleText1;
@@ -74,6 +76,7 @@ public class Panel extends JPanel{
 	private GridBagConstraints redFishLocalVariablesLabelConstraints;
 	private GridBagConstraints blueFishLocalVariablesLabelConstraints;
 	private GridBagConstraints yellowFishLocalVariablesLabelConstraints;
+	private GridBagConstraints objectPoolSizeLabelConstraints;
 
 
 	private GridBagConstraints handleText1Constraints;
@@ -120,6 +123,7 @@ public class Panel extends JPanel{
 	private GridBagConstraints objectText9Constraints;	
 	private GridBagConstraints objectText10Constraints;
 
+	private GridBagConstraints objectPoolSizeTextConstraints;
 
 	private GridBagConstraints redFishButtonConstraints;
 	private GridBagConstraints blueFishButtonConstraints;
@@ -190,8 +194,43 @@ public class Panel extends JPanel{
 		add(getBlueFishLocalVariableLabel(),getBlueFishLocalVariablesLabelConstraints());
 		add(getYellowFishLocalVariableLabel(),getYellowFishLocalVariablesLabelConstraints());
 		add(getMarkAndSweepButton(),getMarkAndSweepButtonConstraints());
+		add(getObjectPoolSize(),getObjectPoolSizeTextConstraints());
+		add(getObjectPoolSizeLabel(),getObjectPoolSizeLabelConstraints());
 	}
 
+	public JLabel getObjectPoolSizeLabel() {
+		if(objectPoolSizeLabel == null){
+			objectPoolSizeLabel = new JLabel("Object Pool Size");
+		}
+		return objectPoolSizeLabel;
+	}
+	
+	public GridBagConstraints getObjectPoolSizeLabelConstraints() {
+		if(objectPoolSizeLabelConstraints == null){
+			objectPoolSizeLabelConstraints = new GridBagConstraints();
+			objectPoolSizeLabelConstraints.gridx = 8;
+			objectPoolSizeLabelConstraints.gridy = 4;
+			objectPoolSizeLabelConstraints.insets = new Insets(8, 8, 8, 8);
+		}
+		return objectPoolSizeLabelConstraints;
+	}
+
+	public JTextField getObjectPoolSize() {
+		if(objectPoolSize == null){
+			objectPoolSize = new JTextField(5);
+		}
+		return objectPoolSize;
+	}
+
+	public GridBagConstraints getObjectPoolSizeTextConstraints() {
+		if(objectPoolSizeTextConstraints == null){
+			objectPoolSizeTextConstraints = new GridBagConstraints();
+			objectPoolSizeTextConstraints.gridx = 8;
+			objectPoolSizeTextConstraints.gridy = 5;
+			objectPoolSizeTextConstraints.insets = new Insets(8, 8, 8, 8);
+		}
+		return objectPoolSizeTextConstraints;
+	}
 
 	public JLabel getRedFishLocalVariableLabel() {
 		if(redFishLocalVariableLabel == null){

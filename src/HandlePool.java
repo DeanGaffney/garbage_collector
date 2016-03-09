@@ -8,9 +8,9 @@ public class HandlePool {
 	private int currentPositionObject;
 	private int currentPositionHandle;
 	private int poolByteSize;
-	private final int redFishByteSize = 12;
-	private final int blueFishByteSize = 8;
-	private final int yellowFishByteSize = 4;
+	public final int redFishByteSize = 12;
+	public final int blueFishByteSize = 8;
+	public final int yellowFishByteSize = 4;
 	private final int redFish = 3;
 	private final int blueFish = 2;
 	private final int yellowFish = 1;
@@ -36,16 +36,16 @@ public class HandlePool {
 		case RED_FISH:
 			if(hasEnoughSpaceObject(redFish) && hasEnoughSpaceHandle(1)){
 				setPoolByteSize(redFishByteSize);
-			}
+			}else System.out.println("No space");
 			break;
 		case BLUE_FISH:
 			if(hasEnoughSpaceObject(blueFish) && hasEnoughSpaceHandle(1)){
 				setPoolByteSize(blueFishByteSize);
-			}
+			}else System.out.println("No space");
 			break;
 		case YELLOW_FISH:
 			if(hasEnoughSpaceObject(yellowFish) && hasEnoughSpaceHandle(1)){
-				setPoolByteSize(yellowFishByteSize);
+				//setPoolByteSize(yellowFishByteSize);
 			}
 			break;
 		default:
@@ -59,19 +59,18 @@ public class HandlePool {
 	}
 	public void setHandlePoolToEmpty(){
 		for(int i = 0;i < handlePool.length;i++) handlePool[i] = 0;
+		System.out.println(handlePool);
 	}
 	
 	public void setObjectPoolLinksToEmpty(){
 		for(int i = 0;i < objectPoolLinks.length;i++) objectPoolLinks[i] = 0;
 	}
 
-
 	public boolean hasEnoughSpaceObject(int objectSize){
 		boolean hasSpace = false;
 		if(currentPositionObject + objectSize < objectPool.objectPool.length){
 			for(int i = currentPositionObject + 1; i == currentPositionObject + objectSize;i++){
-				if(objectPool.objectPool[i] == 0) hasSpace = true;
-				else hasSpace = false;
+				 hasSpace = (objectPool.objectPool[i] == 0) ? true : false;
 			}
 		}
 		return hasSpace;
@@ -105,4 +104,5 @@ public class HandlePool {
 	public int getCurrentPositionHandle(){
 		return currentPositionHandle;
 	}
+
 }

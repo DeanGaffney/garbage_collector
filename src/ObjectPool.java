@@ -22,6 +22,7 @@ public class ObjectPool {
 
 	public void setObjectPoolToEmpty(){
 		for(int i = 0;i < objectPool.length;i++) objectPool[i] = 0;
+		System.out.println(objectPool);
 	}
 	
 	public void setHandlePoolLinkToEmpty(){
@@ -53,8 +54,6 @@ public class ObjectPool {
 	}
 
 	public void defragmentPool(){
-		/*
-		 * defragment the pool and reshape the memory function chunks.
-		 */
+		
 	}
 }
